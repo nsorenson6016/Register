@@ -15,28 +15,27 @@
         <h1>Welcome to Mouthful Eatery!</h1>
         <h2>Please make your order by checking the boxes below</h2>
 
-        <form method="POST" action="front?action=checkboxes">
+        <form id="orderList" name="orderList" method="POST" action="OrderServlet">
             <!-- Remember, using the %= notation below is a shortcut for out.print -->
-            <input type="checkbox" name="menuItems" value="New York Strip" /> New York Strip, $23.95<br/>
-            <input type="checkbox" name="menuItems" value="Greek Salad" /> Greek Salad, $8.95<br/>
-            <input type="checkbox" name="menuItems" value="Coca-Cola" /> Coca-Cola, $1.95<br/>
+            <input type="checkbox" id="menuItems" name="menuItems" value="New York Strip" /> New York Strip, $23.95<br/>
+            <input type="checkbox" id="menuItems" name="menuItems" value="Greek Salad" /> Greek Salad, $8.95<br/>
+            <input type="checkbox" id="menuItems" name="menuItems" value="Coca-Cola" /> Coca-Cola, $1.95<br/>
         </form>
 
         <!-- Button to place the order -->
         <br/>
-        <input type="submit" value="Place Order" name="submit"
-               onsubmit=
+        <input type="submit" value="Place Order" name="Submit Order">
         
         <%
-            try {
-                String[] values = request.getParameterValues("menuItems");
-                for (String item : values) {
-                    System.out.println(item);
+                Object orderedObject = request.getAttribute("orderedItems");
+                String answer = "";
+                if (orderedObject != null) {
+                    answer = orderedObject.toString();
+                    System.out.println("something ");
                 }
-            } catch (NullPointerException npe) {
-                System.out.println("");
-            }
+                out.print(answer);
+                System.out.println("not a dang thing");
+
         %>
-        >
     </body>
 </html>
