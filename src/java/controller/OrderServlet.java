@@ -37,9 +37,15 @@ private static final String HOME_PAGE = "index.jsp";
         
         //get parameter values that are checked
         String [] orders = request.getParameterValues("menuItems");
+        String orderString = "";
+        
+        //put string array into one string
+        for (int i = 0; i < orders.length; i++){
+            orderString = orderString + orders[i] + "<br>";
+        }
         
         //set the attribute to the string array
-        request.setAttribute("orderedItems",orders);
+        request.setAttribute("orderedItems",orderString);
         
         //forward the request back to the index page
         RequestDispatcher view =

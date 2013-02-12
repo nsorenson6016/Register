@@ -17,24 +17,27 @@
 
         <form id="orderList" name="orderList" method="POST" action="OrderServlet">
             <!-- Remember, using the %= notation below is a shortcut for out.print -->
-            <input type="checkbox" id="menuItems" name="menuItems" value="New York Strip" /> New York Strip, $23.95<br/>
-            <input type="checkbox" id="menuItems" name="menuItems" value="Greek Salad" /> Greek Salad, $8.95<br/>
-            <input type="checkbox" id="menuItems" name="menuItems" value="Coca-Cola" /> Coca-Cola, $1.95<br/>
+            <input type="checkbox" id="menuItems" name="menuItems" value="New York Strip/23.95" /> New York Strip, $23.95<br/>
+            <input type="checkbox" id="menuItems" name="menuItems" value="Greek Salad/8.95" /> Greek Salad, $8.95<br/>
+            <input type="checkbox" id="menuItems" name="menuItems" value="Coca-Cola/1.95" /> Coca-Cola, $1.95<br/>
+
+            <!-- Button to place the order -->
+            <br/>
+            <input type="submit" value="Place Order" name="Submit Order">
+
         </form>
 
-        <!-- Button to place the order -->
-        <br/>
-        <input type="submit" value="Place Order" name="Submit Order">
-        
+
+
         <%
-                Object orderedObject = request.getAttribute("orderedItems");
-                String answer = "";
-                if (orderedObject != null) {
-                    answer = orderedObject.toString();
-                    System.out.println("something ");
-                }
-                out.print(answer);
-                System.out.println("not a dang thing");
+            Object orderedObject = request.getAttribute("orderedItems");
+            String answer = "";
+            if (orderedObject != null) {
+                answer = orderedObject.toString();
+                System.out.println("something ");
+            }
+            out.print(answer);
+            System.out.println("not a dang thing");
 
         %>
     </body>
