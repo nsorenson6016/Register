@@ -26,7 +26,7 @@
             <input type="submit" value="Place Order" name="Submit Order">
 
         </form>
-
+        <p>
 
 
         <%
@@ -34,11 +34,10 @@
             String answer = "";
             if (orderedObject != null) {
                 answer = orderedObject.toString();
-                System.out.println("something ");
             }
             out.print(answer);
-            System.out.println("not a dang thing");
 
         %>
+    </p>
     </body>
 </html>
