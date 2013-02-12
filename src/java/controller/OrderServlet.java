@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.ReceiptCalc;
 
 /**
  *
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "OrderServlet", urlPatterns = {"/OrderServlet"})
 public class OrderServlet extends HttpServlet {
 private static final String HOME_PAGE = "index.jsp";
+public ReceiptCalc rc = new ReceiptCalc();
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -40,9 +42,7 @@ private static final String HOME_PAGE = "index.jsp";
         String orderString = "";
         
         //put string array into one string
-        for (int i = 0; i < orders.length; i++){
-            orderString = orderString + orders[i] + "<br>";
-        }
+        orderString = rc.getTotalBill(orders);
         
         //set the attribute to the string array
         request.setAttribute("orderedItems",orderString);
